@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import LoginPage from './components/LoginPage'
+import Dashboard from './components/Dashboard'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+    const [token, setToken] = useState("")
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    useEffect(() => {
+        const hash = window.location.hash
+        let token = window.localStorage.getItem("token")
+    
+        if (!token && hash) {
+            token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
+    
+            window.localStorage.setItem("token", token)
+            window.history.pushState({}, null, '/')
+        }
+    
+        setToken(token)
+    
+    }, [])
+
+    const logout = () => {
+        setToken("")
+        window.localStorage.removeItem("token")
+        window.location = "/"
+    }
+    
+    return (
+        token ? 
+        <div>
+            <Dashboard token={token} />
+            <div className="flex flex-col items-center pt-4">
+                <button className="btn btn-primary" onClick={logout}>Logout</button>
+            </div>
+        </div>
+        : 
+        <div>
+            <LoginPage />
+        </div>)
 }
-
-export default App
