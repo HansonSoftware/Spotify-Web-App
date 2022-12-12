@@ -7,7 +7,10 @@
 ## API Documentation:
 
 * Spotify Official API: https://developer.spotify.com/documentation/web-api/
-* Spotify Web Node API: https://github.com/thelinmichael/spotify-web-api-node
+
+## Credit where it's due:
+
+* SVGs were created using https://app.haikei.app/
 
 ## Notes:
 
@@ -17,5 +20,5 @@
 
 ## Features:
 
-* Login + Authentification
+* Login + Authentification With Spotify
 * Search for []
