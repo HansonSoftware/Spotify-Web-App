@@ -25,7 +25,7 @@ export default function App() {
     const logout = () => {
         setToken("")
         window.localStorage.removeItem("token")
-        window.location = "/"
+        window.location.assign("/")
     }
     
     return (

@@ -3,9 +3,9 @@ import axios from 'axios'
 
 export default function Dashboard({ token }) {
 
-    const [artists, setArtists]: [undefined, Dispatch<SetStateAction<undefined>>] = useState()
+    const [artists, setArtists] = useState()
 
-    const searchArtists = async (e: any) => {
+    const searchArtists = async (e) => {
         e.preventDefault()
         const {data} = await axios.get("https://api.spotify.com/v1/search", {
             headers: {
