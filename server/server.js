@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //     const spotifyApi = new SpotifyWebApi({
 //         redirectUri: "http://localhost:3000",
 //         clientId: "fc2f884fd6de426cb2f6f520d7c7e176",
-//         clientSecret: "d482cd8aadda4b51a0d3a6da829bfe17",
+
 //         refreshToken,
 //     })
 

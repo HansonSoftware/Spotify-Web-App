@@ -17,4 +17,5 @@
 
 ## Features:
 
-* 
+* Login + Authentification
+* Search for []
