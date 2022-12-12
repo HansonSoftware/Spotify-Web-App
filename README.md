@@ -11,6 +11,8 @@
 ## Credit where it's due:
 
 * SVGs were created using https://app.haikei.app/
+* Icons are from https://react-icons.github.io/react-icons/
+* Daisy UI is awesome. Check them out here: https://daisyui.com/
 
 ## Notes:
 
