@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
+import React from 'react'
 import LoginPage from './components/LoginPage'
 import Dashboard from './components/Dashboard'
+import Navbar from './components/Navbar'
 
 export default function App() {
     const [token, setToken] = useState("")
 
     useEffect(() => {
         const hash = window.location.hash
-        let token = window.localStorage.getItem("token")
+        let token: string | null = window.localStorage.getItem("token")
     
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
@@ -29,9 +31,10 @@ export default function App() {
     return (
         token ? 
         <div>
+            <Navbar />
             <Dashboard token={token} />
             <div className="flex flex-col items-center pt-4">
-                <button className="btn btn-primary" onClick={logout}>Logout</button>
+                <button className="btn btn-error" onClick={logout}>Logout</button>
             </div>
         </div>
         : 
