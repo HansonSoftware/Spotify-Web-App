@@ -1,4 +1,4 @@
-# Spotify Web App 🎶 
+# Spotify Web App 🎶 (Musify)
 * Login to your Spotify Account and get a custom experience using my unique Spotify App.
 * Netlify URL: https://spotifywebapp.netlify.app/
 * This UI was designed by yours truly and was built using Vite + React + TS, and Tailwind CSS (some Daisy UI components too!)
