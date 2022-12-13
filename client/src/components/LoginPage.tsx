@@ -9,13 +9,15 @@ const perms:Array<string> = ["streaming", "user-read-email", "user-read-private"
 const scopes:string = perms.join("%20");
 const url:string = `${authEndpoint}?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes}`;
 
+const signup:string = "https://www.spotify.com/us/signup"
+
 export default function LoginPage() {
     return (
-        <div className="flex flex-col justify-center items-center spacer layered" style={{ minHeight: "100vh" }}>
-            <div className="flex flex-col justify-center items-center gap-6 p-6 bg-white/5 bg-opacity-90 backdrop-blur-sm rounded-lg" style={{ minHeight: "65vh", minWidth: "65vh", maxWidth: "80vw"}}> 
+        <div className="flex flex-col justify-center items-center spacer layered" style={{ minHeight: "100vh", minWidth: "100vw" }}>
+            <div className="flex flex-col justify-center items-center gap-6 p-6 bg-white/5 bg-opacity-50 backdrop-blur-3xl rounded-2xl" style={{ minHeight: "65vh", minWidth: "40vw", maxWidth: "80vw", maxHeight: "80vh"}}> 
                     <h1 className="sm:text-4xl text-3xl font-bold pb-48">Welcome to Spotify Player</h1>
-                    <a className="btn btn-primary" href={url}>Login with Spotify</a>
-                    <a className="btn btn-disabled" href={url}>Sign up to listen 🎵</a>
+                    <a className="btn btn-outline rounded-2xl" href={url}>Login with Spotify</a>
+                    <a className="btn btn-primary rounded-2xl" href={signup} target="_blank">Sign up to listen 🎶</a>
             </div> 
         </div>
     )
