@@ -23,4 +23,4 @@
 ## Features:
 
 * Login + Authentification With Spotify
-* Search for []
+* Search for [Artists, Tracks]
