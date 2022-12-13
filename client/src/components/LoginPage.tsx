@@ -1,4 +1,4 @@
-import './LoginPage.css'
+import './Waves.css'
 
 /* Spotify Authentification */
 const authEndpoint:string = "https://accounts.spotify.com/authorize";
@@ -13,7 +13,7 @@ export default function LoginPage() {
     return (
         <div className="flex flex-col justify-center items-center spacer layered" style={{ minHeight: "100vh" }}>
             <div className="flex flex-col justify-center items-center gap-6 p-6 bg-white/5 bg-opacity-90 backdrop-blur-sm rounded-lg" style={{ minHeight: "65vh", minWidth: "65vh", maxWidth: "80vw"}}> 
-                    <h1 className="sm:text-4xl text-3xl font-bold pb-32">Welcome to Spotify Player</h1>
+                    <h1 className="sm:text-4xl text-3xl font-bold pb-48">Welcome to Spotify Player</h1>
                     <a className="btn btn-primary" href={url}>Login with Spotify</a>
                     <a className="btn btn-disabled" href={url}>Sign up to listen 🎵</a>
             </div> 

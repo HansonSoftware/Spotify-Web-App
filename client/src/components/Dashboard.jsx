@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 import axios from 'axios'
+import SongTable from './SongTable'
 
 export default function Dashboard({ token }) {
 
@@ -21,18 +22,23 @@ export default function Dashboard({ token }) {
     }
 
     const renderArtists = () => {
-        return artists?.map(artist => (
-            <div key={artist.id}>
-                {artist.images.length ? <img width={"300rem"} className="rounded-lg border-2 border-primary" src={artist.images[0].url} alt=""/> : <div>No Image</div>}
-                {artist.name}
+        return (
+            <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+                {
+                artists?.map(artist => (
+                    <div key={artist.id}>
+                        {artist.images.length ? <img width={"300rem"} height={"300rem"} className="rounded-lg" src={artist.images[0].url} alt=""/> : <div></div>}
+                        {artist.name}
+                    </div>
+                ))}
             </div>
-        ))
-    }
+        )}
 
     return (
         <div className="p-2">
             <button className="btn btn-accent" onClick={searchArtists}>Albums</button>
             {renderArtists()}
+            <SongTable />
         </div>
     )
 }
