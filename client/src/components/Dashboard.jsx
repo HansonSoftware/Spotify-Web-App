@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import axios from 'axios'
 import SongTable from './SongTable'
 import ArtistCard from './ArtistCard'
+import './ExtraStyles.css'
 
 export default function Dashboard({ token }) {
 
@@ -16,7 +17,7 @@ export default function Dashboard({ token }) {
                 Authorization: `Bearer ${token}`
             },
             params: {
-                q: "Taylor",
+                q: "Kanye",
                 type: "artist"
             }
         })
@@ -35,7 +36,6 @@ export default function Dashboard({ token }) {
                 type: "track"
             }
         })
-        console.log(data.tracks.items)
         setSongs(data.tracks.items)
     }
 
@@ -45,7 +45,7 @@ export default function Dashboard({ token }) {
                 {
                 artists?.map(artist => (
                     <div key={artist.id}>
-                        {artist.images.length ? <ArtistCard artist = {artist} /> : {}}
+                        {<ArtistCard artist = {artist} />}
                     </div>
                 ))}
             </div>
@@ -65,15 +65,15 @@ export default function Dashboard({ token }) {
     )}
 
     return (
-        <div className="h-[100vh] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse p-6">
+        <div className="h-[100vh] overflow-y-scroll no-scrollbar flex xl:flex-row flex-col-reverse example p-6">
             <div className="flex-1 h-fit pb-40">
                 
                 {renderArtists()}
                 {renderSongs()}
                 {/* <SongTable /> */}
 
-                <button className="btn btn-accent" onClick={searchArtists}>Artists</button>
-                <button className="btn btn-accent" onClick={searchSongs}>Songs</button>
+                <button className="btn btn-outline" onClick={searchArtists}>Artists</button>
+                <button className="btn btn-outline" onClick={searchSongs}>Songs</button>
             </div>
         </div>
     )
