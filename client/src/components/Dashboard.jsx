@@ -17,7 +17,7 @@ export default function Dashboard({ token }) {
                 Authorization: `Bearer ${token}`
             },
             params: {
-                q: "Kanye",
+                q: "The",
                 type: "artist"
             }
         })
@@ -32,37 +32,65 @@ export default function Dashboard({ token }) {
                 Authorization: `Bearer ${token}`
             },
             params: {
-                q: "Kanye",
+                q: "The",
                 type: "track"
             }
         })
         setSongs(data.tracks.items)
     }
 
+    const searchAlbums = async (e) => {
+        e.preventDefault()
+        const {data} = await axios.get("https://api.spotify.com/v1/search", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            params: {
+                q: "The",
+                type: "album"
+            }
+        })
+        setAlbums(data.albums.items)
+    }
+
     const renderArtists = () => {
         return (
-            <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-                {
-                artists?.map(artist => (
-                    <div key={artist.id}>
-                        {<ArtistCard artist = {artist} />}
-                    </div>
-                ))}
+            <div>
+                <h1 className="text-white text-4xl font-bold p-6">Artists</h1>
+                <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+                    {
+                    artists?.map(artist => (
+                        <div key={artist.id}>
+                            {<ArtistCard artist = {artist} />}
+                        </div>
+                    ))}
+                </div>
             </div>
     )}
 
     const renderSongs = () => {
         return (
-            <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-                {
-                songs?.map(song => (
-                    <div key={song.id}>
-                        {song.album.images.length ? <img width={"300rem"} height={"300rem"} className="rounded-lg" src={song.album.images[0].url} alt=""/> : <div></div>}
-                        {song.name}
-                    </div>
-                ))}
+            <div>
+                <h1 className="text-white text-4xl font-bold p-6">Songs</h1>
+                <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+                    {
+                    songs?.map(song => (
+                        <div key={song.id}>
+                            {song.album.images.length ? <img width={"300rem"} height={"300rem"} className="rounded-lg" src={song.album.images[0].url} alt=""/> : <div></div>}
+                            {song.name}
+                        </div>
+                    ))}
+                </div>
             </div>
     )}
+
+    const renderAlbums = () => {
+        return (
+            <div>
+
+            </div>
+        )
+    }
 
     return (
         <div className="h-[100vh] overflow-y-scroll no-scrollbar flex xl:flex-row flex-col-reverse example p-6">
@@ -70,10 +98,12 @@ export default function Dashboard({ token }) {
                 
                 {renderArtists()}
                 {renderSongs()}
+                {renderAlbums()}
                 {/* <SongTable /> */}
 
                 <button className="btn btn-outline" onClick={searchArtists}>Artists</button>
                 <button className="btn btn-outline" onClick={searchSongs}>Songs</button>
+                <button className="btn btn-outline" onClick={searchAlbums}>Albums</button>
             </div>
         </div>
     )

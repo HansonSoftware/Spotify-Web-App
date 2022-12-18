@@ -3,8 +3,8 @@ import Logo from '../assets/images/logo.png'
 
 /* Spotify Authentification */
 const authEndpoint:string = "https://accounts.spotify.com/authorize";
-const redirectUri:string = "http://localhost:3000";
-// const redirectUri:string = "https://spotifywebapp.netlify.app/";
+// const redirectUri:string = "http://localhost:3000";
+const redirectUri:string = "https://spotifywebapp.netlify.app/";
 const clientId:string = "fc2f884fd6de426cb2f6f520d7c7e176";
 const perms:Array<string> = ["streaming", "user-read-email", "user-read-private", "user-library-read", "user-read-recently-played", "user-library-modify", "user-read-playback-state", "user-modify-playback-state", "user-read-currently-playing"];
 const scopes:string = perms.join("%20");
