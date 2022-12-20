@@ -2,7 +2,9 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import axios from 'axios'
 import SongTable from './SongTable'
 import ArtistCard from './ArtistCard'
-import './ExtraStyles.css'
+import SongCard from './SongCard'
+import '../stylesheet.css'
+import Logo from '../assets/images/logo.png'
 
 export default function Dashboard({ token }) {
 
@@ -76,8 +78,7 @@ export default function Dashboard({ token }) {
                     {
                     songs?.map(song => (
                         <div key={song.id}>
-                            {song.album.images.length ? <img width={"300rem"} height={"300rem"} className="rounded-lg" src={song.album.images[0].url} alt=""/> : <div></div>}
-                            {song.name}
+                            {<SongCard song = {song} />}
                         </div>
                     ))}
                 </div>
@@ -95,7 +96,6 @@ export default function Dashboard({ token }) {
     return (
         <div className="h-[100vh] overflow-y-scroll no-scrollbar flex xl:flex-row flex-col-reverse example p-6">
             <div className="flex-1 h-fit pb-40">
-                
                 {renderArtists()}
                 {renderSongs()}
                 {renderAlbums()}

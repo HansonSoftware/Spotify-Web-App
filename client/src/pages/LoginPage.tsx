@@ -1,4 +1,4 @@
-import './ExtraStyles.css'
+import '../stylesheet.css'
 import Logo from '../assets/images/logo.png'
 
 /* Spotify Authentification */

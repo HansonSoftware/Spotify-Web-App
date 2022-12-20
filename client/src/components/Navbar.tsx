@@ -2,7 +2,9 @@ export default function Navbar() {
     return (
         <div className="navbar bg-base-100 gap-4">
         <div className="flex-1">
-            <a className="btn btn-ghost normal-case text-2xl text-primary">Melodify</a>
+            <div className="tooltip tooltip-primary tooltip-right" data-tip="Menu">
+                <a className="btn btn-ghost normal-case text-2xl text-primary">Melodify</a>
+            </div>
         </div>
         <div>
             <label className="swap swap-rotate">
